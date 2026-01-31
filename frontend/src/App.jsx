@@ -3,8 +3,11 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Explore from './pages/Explore';
 import FarmerDashboard from './pages/FarmerDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import OrderHistory from './pages/OrderHistory';
+import LogisticsTracking from './pages/LogisticsTracking';
 
 const PrivateRoute = ({ children, roles }) => {
   const token = localStorage.getItem('token');
@@ -22,6 +25,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -39,6 +43,24 @@ function App() {
           element={
             <PrivateRoute roles={['ADMIN']}>
               <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/orders"
+          element={
+            <PrivateRoute>
+              <OrderHistory />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/track/:orderId"
+          element={
+            <PrivateRoute>
+              <LogisticsTracking />
             </PrivateRoute>
           }
         />

@@ -15,6 +15,10 @@ public class Farmer {
 
     private String farmLocation;
     private String cropType;
+    
+    // Bank Details (Milestone 1 Update)
+    private String bankName;
+    private String accountNumber;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -27,4 +31,10 @@ public class Farmer {
 
     public String getCropType() { return cropType; }
     public void setCropType(String cropType) { this.cropType = cropType; }
+
+    public String getBankName() { return bankName; }
+    public void setBankName(String bankName) { this.bankName = bankName; }
+
+    public String getAccountNumber() { return accountNumber; }
+    public void setAccountNumber(String accountNumber) { this.accountNumber = accountNumber; }
 }

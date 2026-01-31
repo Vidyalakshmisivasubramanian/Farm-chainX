@@ -24,13 +24,16 @@ const Navbar = () => {
             <div className="nav-links">
                 {!token ? (
                     <>
+                        <Link to="/explore" className="nav-link">Explorer</Link>
                         <Link to="/login" className="nav-link">Login</Link>
                         <Link to="/register" className="nav-link">Register</Link>
                     </>
                 ) : (
                     <>
+                        <Link to="/explore" className="nav-link">Explorer</Link>
                         {role === 'FARMER' && <Link to="/farmer-dashboard" className="nav-link">My Farm</Link>}
                         {role === 'ADMIN' && <Link to="/admin-dashboard" className="nav-link">Admin Panel</Link>}
+                        <Link to="/orders" className="nav-link">Orders</Link>
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: '1rem' }}>
                             <span style={{ fontSize: '0.875rem', fontWeight: 500 }}>

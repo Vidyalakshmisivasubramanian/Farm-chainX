@@ -30,6 +30,9 @@ public class FarmerController {
         farmer.setUser(user);
         farmer.setFarmLocation(request.get("farmLocation"));
         farmer.setCropType(request.get("cropType"));
+        // Save Bank Details
+        farmer.setBankName(request.get("bankName"));
+        farmer.setAccountNumber(request.get("accountNumber"));
         farmerRepository.save(farmer);
 
         return ResponseEntity.ok(farmer);

@@ -5,6 +5,7 @@ import api from '../api/axios';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -45,13 +46,24 @@ const Login = () => {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Password</label>
-                        <input
-                            className="form-input"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
+                        <div style={{ position: 'relative' }}>
+                            <input
+                                className="form-input"
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                <input
+                                    type="checkbox"
+                                    id="showPassword"
+                                    checked={showPassword}
+                                    onChange={() => setShowPassword(!showPassword)}
+                                />
+                                <label htmlFor="showPassword" style={{ fontSize: '0.9rem', cursor: 'pointer' }}>Show Password</label>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
                         Login
